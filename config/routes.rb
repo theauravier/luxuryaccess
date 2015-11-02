@@ -1,4 +1,44 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
+
+  get 'bookings/show'
+
+  get 'bookings/new'
+
+  get 'bookings/create'
+
+  get 'bookings/update'
+
+  get 'bookings/edit'
+
+  get 'bookings/destroy'
+
+  get 'items/index'
+
+  get 'items/show'
+
+  get 'items/new'
+
+  get 'items/create'
+
+  get 'items/update'
+
+  get 'items/edit'
+
+  get 'items/destroy'
+
+  get 'users/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/update'
+
+  get 'users/edit'
+
+  get 'users/destroy'
+
   devise_for :users
   # root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

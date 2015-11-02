@@ -5,4 +5,9 @@ class Booking < ActiveRecord::Base
   validates :item, presence: true
   validates :customer, presence: true
 
+
+  def owner
+    item.owner
+  end
+
 end

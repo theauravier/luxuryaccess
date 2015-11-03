@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   has_many :bookings, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth)
-    binding.pry
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid

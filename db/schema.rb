@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20151103101921) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +39,9 @@ ActiveRecord::Schema.define(version: 20151103101921) do
     t.string   "category"
     t.string   "brand"
     t.string   "city"
+    t.string   "picture_url_1"
+    t.string   "picture_url_2"
+    t.string   "picture_url_3"
     t.integer  "owner_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"

@@ -1,0 +1,64 @@
+.card {
+  position: relative;
+  height: 230px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  color: white;
+  margin: 20px auto;
+  width: 345px;
+}
+.card-bg{
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.card-gradient {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 80%);
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.card-category {
+  font-size: 15px;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+
+.card-text h2 {
+  position: absolute;
+  font-size: 24px;
+  top: 10px;
+  left: 10px;
+  margin-top: 0px;
+  }
+
+  .card-text p {
+    position: absolute;
+    font-size: 15px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+  &:hover{
+    opacity: 0.1;
+  }
+}

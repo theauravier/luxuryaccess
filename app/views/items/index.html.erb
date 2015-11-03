@@ -3,9 +3,9 @@
     <div class="class row">
       <div class="class col-xs-12 col-sm-6 col-sm-offset-3">
          <%= simple_form_for :search,  url: items_path, class: "form-inline", :method => :get do |f| %>
-          <%= f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
-          <%= f.button :submit, value: "Search", class: "btn btn-success" %>
-  <% end %>
+            <%= f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
+            <%= f.button :submit, value: "Search", class: "btn btn-success" %>
+         <% end %>
       </div>
     </div>
   </div>

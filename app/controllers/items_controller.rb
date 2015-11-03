@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :find_item, only: [:show, :destroy, :edit]
+  before_action :find_item, only: [:show, :destroy, :edit, :update]
   def index
     @items = Item.all
 
@@ -38,7 +39,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to @item
+    else
+      render 'edit'
+    end
   end
+
 
   def destroy
     @item = Item.destroy(find_item)

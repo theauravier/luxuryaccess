@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
 
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
+    styles: { medium: "300x300>", thumb: "100x100>", card: "345x230" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
@@ -16,5 +16,6 @@ class Item < ActiveRecord::Base
   validates :daily_price, presence: :true
   validates :brand, presence: :true
   validates :city, presence: :true
+  validates :picture, presence: :true
 
 end

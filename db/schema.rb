@@ -31,14 +31,17 @@ ActiveRecord::Schema.define(version: 20151102142245) do
   add_index "bookings", ["item_id"], name: "index_bookings_on_item_id", using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "title"
     t.float    "daily_price"
     t.string   "description"
     t.string   "category"
     t.string   "brand"
     t.string   "city"
+    t.string   "picture_url_1"
+    t.string   "picture_url_2"
+    t.string   "picture_url_3"
     t.integer  "owner_id"
   end
 

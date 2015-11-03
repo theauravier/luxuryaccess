@@ -1,15 +1,34 @@
-<h1>This is the list of our luxuous objects for rent</h1>
-
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <ul>
-        <% @items.each do |item| %>
-          <li>Title : <%= link_to item.title, item_path(item) %></li>
-          <li>Price : <%= item.daily_price %> per day</li>
-          <li>Category : <%= item.category %></li>
-          <li>Brand : <%= item.brand %></li>
-      <% end %>
+        <div class="container">
+          <div class="row">
+
+          <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+
+            <% 10.times do %>
+              <% @items.each do |item| %>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="card">
+                    <span class="card-bg" style="background-image: url('<%= image_path "item.picture" %>')"></span>
+                    <span class="card-gradient"></span>
+                    <span class="card-category"><%= item.brand %></span>
+                    <span class="card-text">
+                      <h2><%= item.title %></h2>
+                      <p><%= item.daily_price %> €/j</p>
+                    </span>
+                    <span class="card-user">
+                      <img src="http://placehold.it/50x50" class="avatar avatar-bordered"/>
+                    </span>
+                    <a href="#" class="card-link"></a>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+</div>
+
+          </div>
+        </div>
       </ul>
     </div>
   </div>

@@ -3,6 +3,17 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :destroy, :edit]
   def index
     @items = Item.all
+
+    # byebug
+
+    if params.has_key? "search"
+
+      if params["search"].has_key? "category"
+
+        @items = @items.where(category: params["search"]["category"])
+      end
+    end
+
   end
 
   def show

@@ -5,4 +5,14 @@ class Item < ActiveRecord::Base
   validates :category, presence: true
   validates :title, presence: true
   validates :owner, presence: :true
+  validates :daily_price, presence: :true
+  validates :brand, presence: :true
+  validates :city, presence: :true
+
+  has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
+
 end

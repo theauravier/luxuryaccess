@@ -220,8 +220,8 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip
   omniauth-facebook
+  paperclip
   pg
   pry-byebug
   pry-rails

@@ -53,7 +53,7 @@
 <row name="crypted_pass" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="profile_pic_url" null="1" autoincrement="0">
+<row name="picture" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">

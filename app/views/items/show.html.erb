@@ -1,16 +1,44 @@
-<h1> Detail of <%= @item.title %> </h1>
-<ul>
-    <li>Description : <%= @item.description %></li>
-    <li>Rented by : <%= @item.owner.first_name %></li>
-    <li>Price : <%= @item.daily_price %> per day</li>
-    <li>Category : <%= @item.category %></li>
-    <li>Brand : <%= @item.brand %></li>
-    <li>Available in : <%= @item.city %></li>
-    <li><%= image_tag @item.picture.url(:medium) %></li>
-</ul>
+<h1 class="text-center"> <%= @item.title %> </h1>
 
-<% if @item.owner == current_user %>
-<%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: 'Are you sure you want to delete this ?' }, class: "btn btn-danger" %>
-<% else %>
-<% end %>
-<%= link_to "Back to items list", items_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8">
+        <%= image_tag @item.picture.url(:medium) %>
+      </div>
+
+      <div class="col-sm-4">
+
+      </div>
+    </div>
+
+    <div class="col-sm-8 col-sm-offset-2">
+
+      <ul class="list-unstyled">
+        <li>Description : <%= @item.description %></li>
+        <hr>
+        <div class="col-sm-6">
+        <li>Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name.first %>.</li>
+        </div>
+        <div class="col-sm-6">
+        <li>Price : <%= @item.daily_price %> per day</li>
+        </div>
+        <hr>
+        <li>Category : <%= @item.category %></li>
+        <hr>
+        <li>Brand : <%= @item.brand %></li>
+        <hr>
+        <li>Available in : <%= @item.city %></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center">
+  <% if @item.owner == current_user %>
+    <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: 'Are you sure you want to delete this ?' }, class: "btn btn-danger" %>
+  <% else %>
+  <% end %>
+  <%= link_to "Back to items list", items_path, class: "btn btn-primary" %>
+</div>

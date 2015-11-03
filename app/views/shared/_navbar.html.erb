@@ -1,9 +1,7 @@
 <nav class="navbar-wagon">
   <div class="container navbar-wagon-container">
 
-    <a href="">
-     Luxury Access
-    </a>
+    <%=link_to "Luxury Access", items_path %>
 
     <div class="navbar-wagon-pusher"></div>
 
@@ -48,6 +46,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <hr>
-    <%= link_to t(".top_call_to_action", default: "Post an add"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Post an add"), new_item_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 </nav>

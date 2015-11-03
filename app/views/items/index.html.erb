@@ -10,7 +10,7 @@
               <% @items.each do |item| %>
                 <div class="col-xs-12 col-sm-6">
                   <div class="card">
-                    <span class="card-bg" style="background-image: url('<%= image_tag @item.picture.url(:card) %>')"></span>
+                    <span class="card-bg" style="background-image: url('<%= image_tag item.picture.url(:card) %>')"></span>
                     <span class="card-gradient"></span>
                     <span class="card-category"><%= item.brand %></span>
                     <span class="card-text">
@@ -26,8 +26,6 @@
                 </div>
               <% end %>
             <% end %>
-</div>
-
           </div>
         </div>
       </ul>

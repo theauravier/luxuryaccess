@@ -1,2 +1,16 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1>This is the list of our luxuous objects for rent</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <ul>
+        <% @items.each do |item| %>
+          <li>Title : <%= link_to item.title, item_path(item) %></li>
+          <li>Price : <%= item.daily_price %> per day</li>
+          <li>Category : <%= item.category %></li>
+          <li>Brand : <%= item.brand %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

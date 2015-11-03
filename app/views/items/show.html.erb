@@ -13,24 +13,19 @@
     </div>
 
     <div class="col-sm-8 col-sm-offset-2">
+      <ul class="list-group">
+        <li class="list-group-item">Description : <%= @item.description %></li>
+        <li class="list-group-item">Category : <%= @item.category %></li>
+        <li class="list-group-item">Brand : <%= @item.brand %></li>
+        <li class="list-group-item">Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name.first %>.</li>
+        <li class="list-group-item">Price : <%= @item.daily_price %> per day</li>
+        <li class="list-group-item">Available in : <%= @item.city %></li>
+        <li class="list-group-item">Vestibulum at eros</li>
 
-      <ul class="list-unstyled">
-        <li>Description : <%= @item.description %></li>
-        <hr>
-        <div class="col-sm-6">
-        <li>Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name.first %>.</li>
-        </div>
-        <div class="col-sm-6">
-        <li>Price : <%= @item.daily_price %> per day</li>
-        </div>
-        <hr>
-        <li>Category : <%= @item.category %></li>
-        <hr>
-        <li>Brand : <%= @item.brand %></li>
-        <hr>
-        <li>Available in : <%= @item.city %></li>
+
       </ul>
     </div>
+
   </div>
 
 </div>
@@ -38,7 +33,7 @@
 <div class="text-center">
   <% if @item.owner == current_user %>
     <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: 'Are you sure you want to delete this ?' }, class: "btn btn-danger" %>
-    <%= link_to "Edit this item", edit_item_path(@item), class: "btn btn-primary" %>
+    <%= link_to "Edit this item", edit_item_path(@item), class: "btn btn-warning" %>
   <% else %>
   <% end %>
   <%= link_to "Back to items list", items_path, class: "btn btn-primary" %>

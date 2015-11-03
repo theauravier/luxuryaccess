@@ -6,6 +6,8 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
 
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
@@ -15,6 +17,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
@@ -22,6 +26,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
+  gem 'byebug'
 end
 
 group :production do

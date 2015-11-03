@@ -6,6 +6,7 @@
     <li>Category : <%= @item.category %></li>
     <li>Brand : <%= @item.brand %></li>
     <li>Available in : <%= @item.city %></li>
+    <li><%= image_tag @item.picture.url(:medium) %></li>
 </ul>
 
 <% if @item.owner == current_user %>

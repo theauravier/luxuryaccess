@@ -30,13 +30,13 @@
 
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <ul class="list-group">
-        <li class="list-group-item" style="background-color: rgb(253, 253, 253)">Description : <%= @item.description %></li>
+        <li class="list-group-item">Description : <%= @item.description %></li>
         <li class="list-group-item">Price : <%= @item.daily_price %>€ per day</li>
-        <li class="list-group-item" style="background-color: rgb(253, 253, 253)">Category : <%= @item.category %></li>
+        <li class="list-group-item">Category : <%= @item.category %></li>
         <li class="list-group-item">Brand : <%= @item.brand %></li>
-        <li class="list-group-item" style="background-color: rgb(253, 253, 253)">Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name %>.</li>
+        <li class="list-group-item">Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name %>.</li>
         <li class="list-group-item">Price : <%= @item.daily_price %>€ per day</li>
-        <li class="list-group-item" style="background-color: rgb(253, 253, 253)">Available in : <%= @item.city %></li>
+        <li class="list-group-item">Available in : <%= @item.city %></li>
       </ul>
     </div>
 

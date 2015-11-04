@@ -1,8 +1,14 @@
-.request-form {
+.request-form, .search-form {
   border: 1px solid #D0CECE;
   background-color: white;
   widht: 300px;
   padding: 20px 10px;
+  text-align: center;
+}
+
+.search-form {
+  margin-top: 98px;
+  border-radius: 5px;
 }
 
 .form-pic {

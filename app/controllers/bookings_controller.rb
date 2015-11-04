@@ -10,7 +10,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-
+    @item = Item.find(params[:item_id])
+    @booking = Booking.new(params_bookings)
+    @booking.save
   end
 
   def update
@@ -21,4 +23,10 @@ class BookingsController < ApplicationController
 
   def destroy
   end
+
+  private
+  def params_bookings
+    params.require(:booking).permit(:start_day, :end_day, :item_id)
+  end
+
 end

@@ -8,6 +8,17 @@
       </div>
 
       <div class="col-sm-4">
+    <%= simple_form_for @booking do |f| %>
+      <ul class="list-inline">
+        <li><%= f.input :start_day, label: 'From', error: 'Starting day must be should be a good day' %><li>
+        <li><%= f.input :start_day, label: 'From', error: 'Starting day must be should be a good day' %><li>
+
+      </ul>
+      <div class="text-center">
+        <%= f.button :submit, {class:"btn btn-success"} %>
+      </div>
+
+    <% end %>
 
       </div>
     </div>

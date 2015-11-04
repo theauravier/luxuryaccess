@@ -26,7 +26,7 @@ header{
   height: 100%;
   position: relative;
   overflow: hidden;
-  background: url(https://dl.dropboxusercontent.com/u/16657557/scripts/blur/bg.jpg) center no-repeat; /* Image Credit: Unsplash.me */
+  background: url(https://images.unsplash.com/photo-1444076295597-e246c794dc5f?ixlib=rb-0.3.5&q=80&fm=jpg&s=835a86101aba9c59dc4a8912eafe70ea) center no-repeat; /* Image Credit: Unsplash.me */
   background-size: cover;
 
   .content{
@@ -36,7 +36,8 @@ header{
   }
 
   h1, h2{
-    margin: 0;
+    margin: 10px;
+    padding: 30px;
   }
 
   h2{
@@ -61,7 +62,7 @@ header{
   .overlay{
     position: absolute;
     top: 0; right: 0; left: 0; bottom: 0;
-    background: url(https://dl.dropboxusercontent.com/u/16657557/scripts/blur/bg-blurred.jpg) center no-repeat;
+    background: url(http://www124.lunapic.com/do-not-link-here-use-hosting-instead/14466534655585?1133564) center no-repeat;
     background-size: cover;
     z-index: 0;
     opacity: 0;

@@ -2,17 +2,25 @@
   <div class="class container">
     <div class="class row">
       <div class="class col-xs-12 col-sm-6 col-sm-offset-3">
-         <%= simple_form_for :search,  url: items_path, class: "form-inline", :method => :get do |f| %>
-            <%= f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
-            <%= f.button :submit, value: "Search", class: "btn btn-success" %>
+
+        <% if params.has_key? "category" %>
+          <%= form_tag '/items', class: "form-inline", :method => :get do %>
+            <%= hidden_field_tag 'category', @items.first.category %>
+            <%= number_field_tag 'max_price' %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        <% else %>
+           <%= form_tag '/items', class: "form-inline", :method => :get do %>
+              <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ], "Watch") %>
+              <%= submit_tag "Search" %>
+              <%# f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
+            <% end %>
+            <%# f.button :submit, value: "Search", class: "btn btn-success" %>
          <% end %>
       </div>
     </div>
   </div>
-
 </div>
-
-
 
 <div class="container">
   <div class="row">

@@ -2,6 +2,7 @@
   <div class="class container">
     <div class="class row">
       <div class="class col-xs-12 col-sm-6 col-sm-offset-3">
+
         <% if params.has_key? "category" %>
           <%= form_tag '/items', class: "form-inline", :method => :get do %>
             <%= hidden_field_tag 'category', @items.first.category %>
@@ -19,7 +20,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="container">

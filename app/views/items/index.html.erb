@@ -3,7 +3,7 @@
 
           <div class="col-xs-12 col-sm-4">
             <div class="search-form">
-              <h2 class="text-center" style="padding-bottom:20px">Research</h2>
+              <h2 class="text-center" style="padding-bottom:20px">Filters</h2>
                 <ul class="list-unstyled">
                   <li>
                     <% if params.has_key? "category" %>
@@ -29,9 +29,9 @@
           <div class="col-xs-12 col-sm-8">
 
             <% if params.has_key? "category" %>
-            <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> founded </h1>
+            <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
             <% else %>
-            <h1>All results</h1>
+            <h1 class="text-center">All results</h1>
             <% end %>
 
               <% @items.each do |item| %>

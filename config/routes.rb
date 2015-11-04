@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :items
-  # get 'items/selection' => 'items#selection'
+  resources :items do
+    resources :bookings
+  end
 
-  resources :bookings
+  # get 'items/selection' => 'items#selection'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # root to: 'pages#home'
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   get 'pages/index' => 'pages#index'
 
-  root 'items#index'
+  root 'pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :items
+  # get 'items/selection' => 'items#selection'
 
   resources :bookings
 

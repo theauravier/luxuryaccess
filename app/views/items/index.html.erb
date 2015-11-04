@@ -1,12 +1,25 @@
+<div class="text-center">
+  <div class="class container">
+    <div class="class row">
+      <div class="class col-xs-12 col-sm-6 col-sm-offset-3">
+         <%= simple_form_for :search,  url: items_path, class: "form-inline", :method => :get do |f| %>
+            <%= f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
+            <%= f.button :submit, value: "Search", class: "btn btn-success" %>
+         <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <div class="container">
   <div class="row">
       <ul>
-        <div class="container">
-          <div class="row">
 
           <div class="col-xs-12 col-sm-10 col-sm-offset-2">
 
-            <% 10.times do %>
               <% @items.each do |item| %>
                 <div class="col-xs-12 col-sm-6">
                   <div class="card">
@@ -25,8 +38,6 @@
                   </div>
                 </div>
               <% end %>
-            <% end %>
-          </div>
         </div>
       </ul>
     </div>

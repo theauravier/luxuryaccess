@@ -1,15 +1,26 @@
-<header>
+<header class="montruc">
   <div class="content">
     <hgroup>
       <h1>Access luxury for a day</h1>
       <h2>Rent jewelry, watches and bags from the best designers</h2>
-      <%= simple_form_for :search,  url: items_path, class: "form-inline", :method => :get do |f| %>
-      <%= f.input :category, label: false, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"], prompt: "Select the lurury item of your choice"  %>
-      <%= f.button :submit, value: "Search", class: "btn btn-success" %>
-      <% end %>
+        <% if params.has_key? "category" %>
+          <%= form_tag '/items', class: "form-inline", :method => :get do %>
+            <%= hidden_field_tag 'category', @items.first.category %>
+            <%= number_field_tag 'max_price' %>
+            <%= submit_tag "Search", class: "btn btn-success" %>
+          <% end %>
+        <% else %>
+           <%= form_tag '/items', class: "form-inline", :method => :get do %>
+              <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ], "Watch") %>
+              <%= submit_tag "Search", class: "btn btn-success" %>
+              <%# f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
+            <% end %>
+            <%# f.button :submit, value: "Search", class: "btn btn-success" %>
+         <% end %>
     </hgroup>
   </div>
   <div class="overlay"></div>
 </header>
+
 <section class="site">
 </section>

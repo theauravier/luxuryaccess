@@ -8,6 +8,9 @@
 html, body{
   padding: 0;
   margin: 0;
+}
+
+body.pages-index {
   height: 100%;
 }
 
@@ -16,13 +19,12 @@ html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
+  height: 100%;
 }
 
-body{
+
+.montruc{
   font-size: 1.3em;
-}
-
-header{
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -62,7 +64,7 @@ header{
   .overlay{
     position: absolute;
     top: 0; right: 0; left: 0; bottom: 0;
-    background: url(http://www124.lunapic.com/do-not-link-here-use-hosting-instead/14466534655585?1133564) center no-repeat;
+    background-image: url(https://s3-eu-west-1.amazonaws.com/luxuryaccess/development/items/pictures/000/000/042/original/blur.jpeg?X-Amz-Date=20151104T162119Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=4943448ffe0c1fe1a8fe570f30cbbdd32a4d6132f751f0565811b031bbc418e6&X-Amz-Credential=ASIAIFLQ3QFYQ3WKZCGQ/20151104/eu-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEDEakAJ0Z02GtKdPjnAt9dfDz/gWG9wewndRs7Q8HvAP%2BN4h0X3Uudu5xcZVWFKrcle2zuie95Wxa6wApBRwnrq76gbDroGtGEZcyWovbCCulMCLlHOg4lmiLXGs4krejVo0C7tSFkZxGkNPpIL4hnPyQID4zN9MVJ9v1/6u%2BALc/md8WbKOsdoqQ1xAs3Y8fZfvlvFSQROFW62QUuZe7D0BEMNPEilf8vEdPs1HlJ0I1rU/adT8c1dnjmn4L%2BFMpmbvOBbB4IeFb%2BRI/9Vo4mbj8pag1crVv70/6gBLziL3XkGdtvsGmTnanISaJyHahjTbqVtkm9K/xObJQV5SUlKsK%2B7rbOE9ufZUvb78kBmYfK6U9CC41%2BixBQ%3D%3D) center no-repeat;
     background-size: cover;
     z-index: 0;
     opacity: 0;

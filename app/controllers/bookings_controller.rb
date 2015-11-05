@@ -22,6 +22,8 @@ class BookingsController < ApplicationController
     @booking.customer = current_user
     if @booking.save
       redirect_to item_booking_path(@item, @booking)
+      BookingMailer.booking_request_confirmation(@booking).deliver_now
+      BookingMailer.new_booking_request(@booking).deliver_now
     else
       redirect_to :back
     end

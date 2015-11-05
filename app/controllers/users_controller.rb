@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   def show
-    # @booking = Booking.where('customer_id = ?' @user)
+    @bookings = @user.bookings
+    @items = Item.where('owner_id = ?', @user)
   end
 
   def new

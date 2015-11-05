@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     if @item.save
       flash[:notice] = "#{@item.title} has been created"
       redirect_to item_path(@item)
+      ItemMailer.add_confirmation(@item).deliver_now
     else
       render :new
     end

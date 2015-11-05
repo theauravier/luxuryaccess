@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     @booking.item_id = @item.id
     @booking.customer = current_user
     if @booking.save
+      flash[:notice] = "Your booking request of #{@booking.item.title} has been created :)"
       redirect_to item_booking_path(@item, @booking)
       BookingMailer.booking_request_confirmation(@booking).deliver_now
       BookingMailer.new_booking_request(@booking).deliver_now

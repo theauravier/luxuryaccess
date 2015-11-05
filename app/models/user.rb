@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   has_many :items, dependent: :destroy, foreign_key: "owner_id"
+  has_many :item_bookings, through: :items, source: :bookings
   has_many :bookings, dependent: :destroy, foreign_key: "customer_id"
 
   after_create :send_welcome_email

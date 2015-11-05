@@ -5,8 +5,8 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#offer" aria-controls="offer" role="tab" data-toggle="tab">My Items</a></li>
-    <li role="presentation"><a href="#travelers" aria-controls="travelers" role="tab" data-toggle="tab">My annonce reservé</a></li>
-    <li role="presentation"><a href="#bookings" aria-controls="bookings" role="tab" data-toggle="tab">My purchase</a></li>
+    <li role="presentation"><a href="#travelers" aria-controls="travelers" role="tab" data-toggle="tab">Mes achats</a></li>
+    <li role="presentation"><a href="#bookings" aria-controls="bookings" role="tab" data-toggle="tab">Mes ventes</a></li>
     <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit profile</a></li>
   </ul>
 
@@ -75,7 +75,46 @@
 </div>
 
     <div role="tabpanel" class="tab-pane" id="bookings">
-      Zdf
+          Les objets que d'autres m'ont reservé
+        <% @sales.each do |sale| %>
+          <h1 class="text-center" style="margin-bottom: 20px"> <%= sale.item.title %> </h1>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="col-xs-12 col-md-8" style="padding-right: 0px">
+                  <div class="show-pic">
+                    <%= image_tag sale.item.picture.url(:add), class:"img-show" %>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4" style="padding-right: 10px padding-left: 10px">
+                  <div class="request-form">
+                    <h2 class="text-center" style="padding-bottom:20px">Booking</h2>
+
+                    <ul>
+                      <li class="list-group-item">From: <%= sale.start_day %></li>
+                      <li class="list-group-item">To: <%= sale.end_day %></li>
+                      <li class="list-group-item">Total price : <%= (sale.item.daily_price * (sale.end_day - sale.start_day)).to_i %>€ </li>
+                      <li class="list-group-item">Contact : <%= sale.item.owner.email %></li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+              </div>
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+              <ul class="list-group listing">
+                <li class="list-group-item">Description : <%= sale.item.description %></li>
+                <li class="list-group-item">Price : <%= sale.item.daily_price.round %>€ per day</li>
+                <li class="list-group-item">Category : <%= sale.item.category %></li>
+                <li class="list-group-item">Brand : <%= sale.item.brand %></li>
+                <li class="list-group-item">Rented by : <%= sale.item.owner.first_name %> <%= sale.item.owner.last_name %></li>
+                <li class="list-group-item">Available in : <%= sale.item.city %></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+
     </div>
     <div role="tabpanel" class="tab-pane" id="edit">Test</div>
   </div>

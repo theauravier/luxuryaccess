@@ -2,7 +2,7 @@
 
 
   has_attached_file :picture,
-    styles: { medium: "1000x1000>", thumb: "100x100>", card: "345x230", add: "507x316" }
+    styles: { medium: "1000x1000>", thumb: "100x100>", card: "345x230>", add: "500x335>" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

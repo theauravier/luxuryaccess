@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   def show
     @bookings = @user.bookings
-    @items = @items.user
+    @items = @user.items
   end
 
   def new

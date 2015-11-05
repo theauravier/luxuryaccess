@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  has_many :items, dependent: :destroy
-  has_many :bookings, dependent: :destroy
+  has_many :items, dependent: :destroy, foreign_key: "owner_id"
+  has_many :bookings, dependent: :destroy, foreign_key: "customer_id"
 
   after_create :send_welcome_email
 

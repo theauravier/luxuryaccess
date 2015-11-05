@@ -33,7 +33,11 @@
         </div>
       <% end %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="travelers">You</div>
+    <div role="tabpanel" class="tab-pane" id="travelers">
+      <% @bookings.each do |booking| %>
+        <%= booking.start_day %>
+      <% end %>
+    </div>
     <div role="tabpanel" class="tab-pane" id="bookings">Mince alors</div>
     <div role="tabpanel" class="tab-pane" id="edit">Test</div>
   </div>

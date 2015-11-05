@@ -1,2 +1,42 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#offer" aria-controls="offer" role="tab" data-toggle="tab">My offers</a></li>
+    <li role="presentation"><a href="#travelers" aria-controls="travelers" role="tab" data-toggle="tab">Bookings reseved</a></li>
+    <li role="presentation"><a href="#bookings" aria-controls="bookings" role="tab" data-toggle="tab">Bookings give</a></li>
+    <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit profile</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="offer">
+      <h2 class="text-center">Your offers</h2>
+     <% @items.each do |item| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card">
+            <span class="card-bg" style="background-image: url('<%= image_path item.picture.url(:card) %>')"></span>
+            <span class="card-gradient"></span>
+            <span class="card-category"><%= item.brand %></span>
+            <span class="card-text">
+              <h2><%= item.title %></h2>
+              <p><%= item.daily_price %> €/j</p>
+            </span>
+            <span class="card-user">
+              <img src="http://placehold.it/50x50" class="avatar avatar-bordered"/>
+            </span>
+            <%= link_to item_path(item), {class:"card-link"} do %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="travelers">You</div>
+    <div role="tabpanel" class="tab-pane" id="bookings">Mince alors</div>
+    <div role="tabpanel" class="tab-pane" id="edit">Test</div>
+  </div>
+
+</div>

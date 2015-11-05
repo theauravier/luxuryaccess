@@ -11,7 +11,7 @@
           <% end %>
         <% else %>
            <%= form_tag '/items', class: "form-inline", :method => :get do %>
-              <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ], "Watch") %>
+              <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ]),class: "form-control", prompt: "What do you want to rent ?" %>
               <%= submit_tag "Search", class: "btn btn-success" %>
               <%# f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
             <% end %>

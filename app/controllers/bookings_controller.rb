@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @booking.end_day = DateTime.strptime(params[:booking][:end_day], '%m/%d/%Y').to_date
     @booking.item_id = @item.id
     @booking.customer = current_user
+    @booking.status = "waiting"
     if @booking.save
       redirect_to item_booking_path(@item, @booking)
     else
@@ -27,10 +28,24 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
+  def edit
+    @booking = Booking.find(params[:id])
+    @item = @booking.item
+    @owner = @booking.owner
   end
 
-  def edit
+  def update
+    @booking = Booking.find(params[:id])
+    @item = @booking.item
+    if @item.update(params_bookings_answer)
+      if @booking.status = "Accept"
+        redirect_to item_booking_path(@item, @booking)
+      else
+        redirect_to bookings_path
+      end
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -38,6 +53,10 @@ class BookingsController < ApplicationController
 
   private
   def params_bookings
+    params.require(:booking).permit(:start_day, :end_day)
+  end
+
+  def params_bookings_answer
     params.require(:booking).permit(:start_day, :end_day)
   end
 

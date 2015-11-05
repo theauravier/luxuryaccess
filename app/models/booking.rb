@@ -4,8 +4,8 @@ class Booking < ActiveRecord::Base
 
   validates :item, presence: true
   validates :customer, presence: true
-  # validates :start_day, presence: true
-  # validates :end_day, presence: true
+  validates :start_day, presence: true
+  validates :end_day, presence: true
 
   def owner
     item.owner

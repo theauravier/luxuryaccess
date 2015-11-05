@@ -1,4 +1,4 @@
-<h1 class="text-center" style="margin-bottom: 70px"> <%= @item.title %> </h1>
+<h1 class="text-center" style="margin-bottom: 50px"> <%= @item.title %> </h1>
 
 <div class="container">
   <div class="row">
@@ -6,7 +6,7 @@
 
       <div class="col-xs-12 col-md-8" style="padding-right: 0px">
         <div class="show-pic">
-          <%= image_tag @item.picture.url(:add) %>
+          <%= image_tag @item.picture.url(:add), class:"img-show" %>
         </div>
       </div>
 
@@ -15,11 +15,11 @@
           <h2 class="text-center" style="padding-bottom:20px">Booking</h2>
           <%= simple_form_for [@item, @booking] do |f| %>
             <ul class="list-inline">
-              <li><%= f.input :start_day, label: "From", as: :string, input_html: { class:"datepicker" }, error: 'Starting day should be a good day' %><li>
-              <li><%= f.input :end_day, label: "Until", as: :string, input_html: { class:"datepicker" }, error: 'Starting day should be a bad day' %><li>
+              <li><%= f.input :start_day, label: "From:", as: :string, input_html: { class:"datepicker" }, error: 'Starting day should be a good day' %><li>
+              <li><%= f.input :end_day, label: "To:", as: :string, input_html: { class:"datepicker" }, error: 'Starting day should be a bad day' %><li>
             </ul>
             <div class="text-center">
-            <%= f.button :submit, {class:"btn btn-success"} %>
+            <%= f.submit "Send request", class:"btn btn-success" %>
             </div>
           <% end %>
         </div>
@@ -29,13 +29,12 @@
   </div>
 
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <ul class="list-group">
+      <ul class="list-group listing">
         <li class="list-group-item">Description : <%= @item.description %></li>
-        <li class="list-group-item">Price : <%= @item.daily_price %>€ per day</li>
+        <li class="list-group-item">Price : <%= @item.daily_price.round %>€ per day</li>
         <li class="list-group-item">Category : <%= @item.category %></li>
         <li class="list-group-item">Brand : <%= @item.brand %></li>
-        <li class="list-group-item">Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name %>.</li>
-        <li class="list-group-item">Price : <%= @item.daily_price %>€ per day</li>
+        <li class="list-group-item">Rented by : <%= @item.owner.first_name %> <%= @item.owner.last_name %></li>
         <li class="list-group-item">Available in : <%= @item.city %></li>
       </ul>
     </div>

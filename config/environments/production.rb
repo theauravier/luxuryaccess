@@ -20,6 +20,11 @@ Rails.application.configure do
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'https://tranquil-ridge-9889.herokuapp.com' }
+  #config.action_mailer.postmark_settings = { :api_token => "efec5375-f9f7-4307-a7c3-6012b43b8022" }
+
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?

@@ -17,6 +17,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'bourbon'
+gem "letter_opener", group: :development
+gem 'postmark-rails'
+
 
 gem 'omniauth-facebook'
 

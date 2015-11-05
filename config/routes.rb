@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+
   # get 'items/selection' => 'items#selection'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   get 'pages/index' => 'pages#index'
+
+  get 'users/:id' => 'users#show'
 
   root 'pages#index'
 

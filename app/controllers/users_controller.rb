@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
   def show
+    # @booking = Booking.where('customer_id = ?' @user)
   end
 
   def new
@@ -15,5 +17,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+   def set_user
+    @user = User.find(params[:id])
   end
 end

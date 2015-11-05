@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # get 'items/selection' => 'items#selection'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  resources :users, only: :show
   # root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   get 'pages/index' => 'pages#index'
 
-  get 'users/:id' => 'users#show'
+
 
   root 'pages#index'
 

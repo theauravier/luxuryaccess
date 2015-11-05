@@ -22,7 +22,11 @@
 }
 
 .img-show {
-  height: 335px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 
 .listing {
@@ -31,6 +35,10 @@
   margin-bottom: 30px;
 }
 
+.block-img {
+  padding-left: 0px;
+  padding-right: 15px;
+}
 
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.

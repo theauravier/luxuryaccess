@@ -10,21 +10,16 @@
                       <%= form_tag '/items', :method => :get do %>
                         <%= hidden_field_tag 'category', @items.first.category %>
                         Max price: <%= number_field_tag 'max_price' %>€
-                       <%= submit_tag "Search", class: "btn btn-success" %>
+                        <%= submit_tag "Search", class: "btn btn-success" %>
                       <% end %>
                     <% else %>
-                       <%= form_tag '/items', :method => :get do %>
-                          <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ]),class: "form-control", prompt: "What do you want to rent ?" %>
-                          <%= submit_tag "Search", class: "btn btn-success" %>
-                  </li>
-                          <%# f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
-                        <% end %>
-                        <%# f.button :submit, value: "Search", class: "btn btn-success" %>
-                     <% end %>
-                </ul>
-
-            </div>
-          </div>
+                      <%= form_tag '/items', id: "category_choice", class: "form-inline", :method => :get do %>
+                        <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ]),class: "form-control", prompt: "What do you want to rent ?" %>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
 
           <div class="col-xs-12 col-sm-8">
 

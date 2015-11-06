@@ -24,6 +24,7 @@ gem 'postmark-rails'
 gem 'omniauth-facebook'
 
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-slider-rails'
 
 group :development, :test do
   gem 'binding_of_caller'

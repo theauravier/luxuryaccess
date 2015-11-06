@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.end_day = DateTime.strptime(params[:booking][:end_day], '%m/%d/%Y').to_date
     @booking.item_id = @item.id
     @booking.customer = current_user
-    @booking.status = "waiting"
+    @booking.status = "Waiting"
     if @booking.save
       redirect_to item_booking_path(@item, @booking)
       BookingMailer.booking_request_confirmation(@booking).deliver_now
@@ -34,16 +34,19 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @item = @booking.item
     @owner = @booking.owner
+    @customer = @booking.customer
   end
 
   def update
     @booking = Booking.find(params[:id])
     @item = @booking.item
-    if @item.update(params_bookings_answer)
-      if @booking.status = "Accept"
-        redirect_to item_booking_path(@item, @booking)
+    @owner = @booking.owner
+    @customer = @booking.customer
+    if @booking.update(params_bookings_answer)
+      if @booking.status == "Accept"
+        redirect_to users_dashboard_path
       else
-        redirect_to bookings_path
+        redirect_to users_dashboard_path
       end
     else
       render 'edit'
@@ -59,7 +62,7 @@ class BookingsController < ApplicationController
   end
 
   def params_bookings_answer
-    params.require(:booking).permit(:start_day, :end_day)
+    params.require(:booking).permit(:start_day, :end_day, :status)
   end
 
 end

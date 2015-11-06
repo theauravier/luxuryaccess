@@ -28,14 +28,24 @@
         </div>
       </div>
     </div>
-
-    <%= simple_form_for [@item, @booking] do |f| %>
-      <ul class="list-inline text-center">
-        <li>Answer:</li>
-        <li><%= f.input :status, as: :select, collection: ["Waiting", "Accept", "Refuse"] %><li>
-        <li><%= f.submit "Send", class:"btn btn-success" %></li>
-      </ul>
+    <% if @owner == current_user %>
+      <%= simple_form_for [@item, @booking] do |f| %>
+        <ul class="list-inline text-center">
+          <li>Answer:</li>
+          <li><%= f.input :status, as: :select, collection: ["Accept", "Refuse"] %><li>
+          <li><%= f.submit "Send", class:"btn btn-success" %></li>
+        </ul>
+      <% end %>
+    <% else %>
+      <%= simple_form_for [@item, @booking] do |f| %>
+        <ul class="list-inline text-center">
+          <li>Answer:</li>
+          <li><%= f.input :status, as: :select, collection: ["Cancel", "Modify"] %><li>
+          <li><%= f.submit "Send", class:"btn btn-success" %></li>
+        </ul>
+      <% end %>
     <% end %>
+
 
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <ul class="list-group listing">

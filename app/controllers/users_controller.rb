@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     @bookings = @user.bookings
+    @item_bookings = @user.item_bookings
     @items = @user.items
     @sales = @user.item_bookings
+    @owner = @user.bookings
+    @customer = @user.item_bookings
   end
 
   def new

@@ -26,7 +26,7 @@
             <% if params.has_key? "category" %>
             <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
             <% else %>
-            <h1 class="text-center">All results</h1>
+            <h1 class="text-center"><%= @items.count %> Results</h1>
             <% end %>
 
               <% @items.each do |item| %>

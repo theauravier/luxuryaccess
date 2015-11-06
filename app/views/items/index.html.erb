@@ -7,14 +7,18 @@
                 <ul class="list-unstyled">
                   <li>
                     <% if params.has_key? "category" %>
-                      <%= form_tag '/items', :method => :get do %>
-                        <%= hidden_field_tag 'category', @items.first.category %>
-                        Max price: <%= number_field_tag 'max_price' %>€
-                        <%= submit_tag "Search", class: "btn btn-success" %>
-                      <% end %>
-                    <% else %>
-                      <%= form_tag '/items', id: "category_choice", class: "form-inline", :method => :get do %>
-                        <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ]),class: "form-control", prompt: "What do you want to rent ?" %>
+                      <% if @items.empty? %>
+                        <h2> Sorry no product are behind this price !</h2>
+                      <% else %>
+                        <%= form_tag '/items', :method => :get do %>
+                          <%= hidden_field_tag 'category', @items.first.category %>
+                          Max price: <%= number_field_tag 'max_price' %>€
+                          <%= submit_tag "Search", class: "btn btn-success" %>
+                        <% end %>
+                      <% else %>
+                        <%= form_tag '/items', id: "category_choice", class: "form-inline", :method => :get do %>
+                          <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ]),class: "form-control", prompt: "What do you want to rent ?" %>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </ul>
@@ -25,7 +29,6 @@
 
             <% if params.has_key? "category" %>
             <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
-            <% else %>
             <h1 class="text-center">All results</h1>
             <% end %>
 

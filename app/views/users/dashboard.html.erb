@@ -27,7 +27,6 @@
 
     <!-- Mes ventes -->
     <div role="tabpanel" class="tab-pane" id="bookings">
-          Les objets que d'autres m'ont reservé
       <% @sales.each do |sale| %>
         <%= render 'shared/card_dashboard', booking: sale %>
       <% end %>

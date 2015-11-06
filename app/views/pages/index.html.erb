@@ -12,21 +12,9 @@
         <% else %>
            <%= form_tag '/items', id: "category_choice", class: "form-inline", :method => :get do %>
               <%= select_tag "category", options_for_select([ "Watch", "Jewel", "Handbag" ]),class: "form-control", prompt: "What do you want to rent ?" %>
-
-
-              <option selected disabled hidden value=''></option>
-
-              <%# submit_tag "Search", class: "btn btn-success" %>
-              <%# f.input :category, class: "form-control", collection: [ "Watch", "Jewels", "Handbag"] %>
             <% end %>
-            <%# f.button :submit, value: "Search", class: "btn btn-success" %>
          <% end %>
     </hgroup>
   </div>
-  <div class="overlay"></div>
 </header>
 
-
-
-<section class="site">
-</section>

@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
     @booking.status = "waiting"
     if @booking.save
       redirect_to users_dashboard_path(:anchor => "travelers")
+      flash[:notice] = "Your booking request of #{@booking.item.title} has been created :)"
       BookingMailer.booking_request_confirmation(@booking).deliver_now
       BookingMailer.new_booking_request(@booking).deliver_now
     else

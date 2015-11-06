@@ -43,7 +43,7 @@
               <%= simple_form_for [booking.item, booking] do |f| %>
                 <ul class="list-inline text-center">
                   <li>Statut:</li>
-                  <li><%= f.input :status, label:false, as: :select, collection: ["Cancel"] %><li>
+                  <li><%= f.input :status, label:false, as: :select, collection: ["Accept, Cancel"] %><li>
                   <li><%= f.submit "Change", class:"btn btn-success" %></li>
                 </ul>
               <% end %>

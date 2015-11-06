@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+#max_price {
+  width: 60px;
+  height: 36px;
+}
+
 .search-form {
   margin-top: 98px;
   border-radius: 5px;
@@ -38,6 +43,9 @@
 .block-img {
   padding-left: 0px;
   padding-right: 15px;
+}
+#ex1Slider .slider-selection {
+  background: #BABABA;
 }
 
 // Place all the styles related to the items controller here.

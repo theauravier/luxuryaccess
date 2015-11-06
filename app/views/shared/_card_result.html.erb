@@ -7,7 +7,7 @@
     <p><%= item.daily_price %> €/j</p>
   </span>
   <span class="card-user">
-    <img src="http://placehold.it/50x50" class="avatar avatar-bordered"/>
+    <%= image_tag item.owner.picture, class: "avatar avatar-bordered" %>
   </span>
   <%= link_to item_path(item), {class:"card-link"} do %>
   <% end %>

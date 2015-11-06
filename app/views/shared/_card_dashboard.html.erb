@@ -1,4 +1,3 @@
-<h1 class="text-center" style="margin-bottom: 20px"><%= booking.item.title %></h1>
 <div class="container ">
   <div class="row">
     <div class="col-xs-12">
@@ -13,23 +12,43 @@
 
       <div class="col-xs-12 col-sm-3 vignette" style="padding-right: 10px padding-left: 10px">
         <ul class="list-group listing vignette">
+          <li class="list-group-item">Title: <%= booking.item.title %></li>
           <li class="list-group-item">From: <%= booking.start_day %></li>
           <li class="list-group-item">Category: <%= booking.item.category %></li>
           <li class="list-group-item">Price: <%= booking.item.daily_price.round %>€ per day</li>
           <li class="list-group-item">Rented by: <%= booking.item.owner.first_name %> <%= booking.item.owner.last_name %></li>
-          <li class="list-group-item">Available in: <%= booking.item.city %></li>
         </ul>
-        </div>
+      </div>
 
       <div class="col-xs-12 col-sm-3 vignette">
         <ul class="list-group listing vignette">
+          <li class="list-group-item">Available in: <%= booking.item.city %></li>
           <li class="list-group-item">To: <%= booking.end_day %></li>
           <li class="list-group-item">Brand: <%= booking.item.brand %></li>
           <li class="list-group-item">Total price: <%= (booking.item.daily_price * (booking.end_day - booking.start_day)).to_i %>€ </li>
           <li class="list-group-item"><%= booking.item.owner.email %></li>
-          <li class="list-group-item">Status: <%= booking.status %></li>
         </ul>
       </div>
+
+          <div class="col-xs-12 text-center change-status">
+            <% if booking.owner == current_user %>
+              <%= simple_form_for [booking.item, booking] do |f| %>
+                <ul class="list-inline text-center">
+                  <li>Statut:</li>
+                  <li><%= f.input :status, label:false, as: :select, collection: ["Accept", "Refuse"] %></li>
+                  <li><%= f.submit "Change", class:"btn btn-success" %></li>
+                </ul>
+              <% end %>
+            <% else %>
+              <%= simple_form_for [booking.item, booking] do |f| %>
+                <ul class="list-inline text-center">
+                  <li>Statut:</li>
+                  <li><%= f.input :status, label:false, as: :select, collection: ["Cancel"] %><li>
+                  <li><%= f.submit "Change", class:"btn btn-success" %></li>
+                </ul>
+              <% end %>
+            <% end %>
+          </div>
 
     </div>
   </div>

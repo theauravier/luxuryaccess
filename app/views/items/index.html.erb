@@ -39,9 +39,12 @@
           <div class="col-xs-12 col-sm-8">
             <% if @items.empty? %>
             <% else %>
+
               <% if params.has_key? "category" %>
               <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
+
               <% end %>
+            <% end %>
 
                 <% @items.each do |item| %>
                   <div class="col-xs-12 col-sm-6">

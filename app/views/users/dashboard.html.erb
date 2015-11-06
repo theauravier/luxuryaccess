@@ -12,29 +12,44 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
+
     <div role="tabpanel" class="tab-pane active" id="offer">
-      <% @items.each do |item| %>
-      <%= render 'shared/card_result', item: item %>
-      <% end %>
+      <div class="container">
+        <div class="row">
+          <h2 class="dashboard-title"><%= @items.count %> <%= @items.count > 1 ? "Offers online" : "Offer online" %></h2>
+          <% @items.each do |item| %>
+            <div class="col-xs-12 col-sm-6">
+              <%= render 'shared/card_result', item: item %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <!-- Mes achats -->
     <div role="tabpanel" class="tab-pane" id="travelers">
+      <h2 class="dashboard-title"><%= @bookings.count %><%= @items.count %> <%= @items.count > 1 ? "Booking requests I have made" : "Booking request I have made" %></h2>
       <% @bookings.each do |booking| %>
         <%= render 'shared/card_dashboard', booking: booking %>
-      <% end %>
+
+
+    <% end %>
     </div>
 
     <!-- Mes ventes -->
     <div role="tabpanel" class="tab-pane" id="bookings">
+      <h2 class="dashboard-title"><%= @item_bookings.count %><%= @items.count %> <%= @items.count > 1 ? "Booking requests I have received" : "Booking request I have received" %></h2>
       <% @sales.each do |sale| %>
         <%= render 'shared/card_dashboard', booking: sale %>
       <% end %>
 
     </div>
+
     <div role="tabpanel" class="tab-pane" id="edit">
-      <%= render "devise/registrations/edit", resource_name: :user, resource: current_user, devise_mapping: nil %>
-    </div>
+    <h2 class="dashboard-title">Edit my profile</h2>
+     <%= render "devise/registrations/edit", resource_name: :user, resource: current_user, devise_mapping: nil %>
+   </div>
   </div>
 
 </div>
+  </div>

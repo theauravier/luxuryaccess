@@ -18,9 +18,12 @@
                   <li>
 
                       <% if params.has_key? "category" %>
+
+                        <input id="ex1" data-slider-id='ex1Slider' data-slider-min="10" data-slider-max="500" data-slider-step="1" data-slider-value="500"/><br /> <br />
+
                         <%= form_tag '/items', :method => :get do %>
                           <%= hidden_field_tag 'category', @items.first.category %>
-                          Max price: <%= number_field_tag 'max_price' %>€
+                          Max price <%= number_field_tag 'max_price' %>
                           <%= submit_tag "Search", class: "btn btn-success" %>
                         <% end %>
                       <% else %>
@@ -41,6 +44,7 @@
               <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
 
               <% end %>
+            <% end %>
 
                 <% @items.each do |item| %>
                   <div class="col-xs-12 col-sm-6">
@@ -53,3 +57,13 @@
     </div>
   </div>
 </div>
+<% content_for(:js) do%>
+  <%= javascript_tag do %>
+  $('#ex1').slider({
+    formatter: function(value) {
+      $('#max_price').val(value);
+    }
+  });
+
+<% end %>
+<% end %>

@@ -11,8 +11,11 @@
  * - Creating a Medium.com-style blur on scroll image
  * - Getting scroll position using requestAnimationFrame for better performance
  */
-
-
+$(document).ready (function() {
+  $("#category").change(function() {
+    $("#category_choice").submit()
+  });
+});
 /**
  * Cache
  */

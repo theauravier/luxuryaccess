@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
-  def show
+  before_action :set_user, except: :dashboard
+  def dashboard
+    @user = current_user
     @bookings = @user.bookings
     @items = @user.items
     @sales = @user.item_bookings

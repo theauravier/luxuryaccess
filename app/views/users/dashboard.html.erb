@@ -116,7 +116,9 @@
         <% end %>
 
     </div>
-    <div role="tabpanel" class="tab-pane" id="edit">Test</div>
+    <div role="tabpanel" class="tab-pane" id="edit">
+      <%= render "devise/registrations/edit", resource_name: :user, resource: current_user, devise_mapping: nil %>
+    </div>
   </div>
 
 </div>

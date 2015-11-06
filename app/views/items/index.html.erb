@@ -6,10 +6,10 @@
               <h2 class="text-center" style="padding-bottom:20px">Filters</h2>
                 <ul class="list-unstyled">
                   <li>
-                    <% if params.has_key? "category" %>
-                      <% if @items.empty? %>
-                        <h2> Sorry no product are behind this price !</h2>
-                      <% else %>
+                    <% if @items.empty? %>
+                      <h2>Sorry no product find behind this price </h2>
+                    <% else %>
+                      <% if params.has_key? "category" %>
                         <%= form_tag '/items', :method => :get do %>
                           <%= hidden_field_tag 'category', @items.first.category %>
                           Max price: <%= number_field_tag 'max_price' %>€
@@ -26,16 +26,18 @@
               </div>
 
           <div class="col-xs-12 col-sm-8">
+            <% if @items.empty? %>
+            <% else %>
+              <% if params.has_key? "category" %>
+              <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
+              <h1 class="text-center">All results</h1>
+              <% end %>
 
-            <% if params.has_key? "category" %>
-            <h1 class="text-center"><%= @items.count %> <%= @items.count > 1 ? @items.first.category.pluralize : @items.first.category.singularize %> found </h1>
-            <h1 class="text-center">All results</h1>
-            <% end %>
-
-              <% @items.each do |item| %>
-                <div class="col-xs-12 col-sm-6">
-                  <%= render 'shared/card_result', item: item %>
-                </div>
+                <% @items.each do |item| %>
+                  <div class="col-xs-12 col-sm-6">
+                    <%= render 'shared/card_result', item: item %>
+                  </div>
+                <% end %>
               <% end %>
         </div>
       </ul>

@@ -5,8 +5,8 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#offer" aria-controls="offer" role="tab" data-toggle="tab">My Items</a></li>
-    <li role="presentation"><a href="#travelers" aria-controls="travelers" role="tab" data-toggle="tab">Mes achats</a></li>
-    <li role="presentation"><a href="#bookings" aria-controls="bookings" role="tab" data-toggle="tab">Mes ventes</a></li>
+    <li role="presentation"><a href="#travelers" aria-controls="travelers" role="tab" data-toggle="tab">Requests sent</a></li>
+    <li role="presentation"><a href="#bookings" aria-controls="bookings" role="tab" data-toggle="tab">Requests received</a></li>
     <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">Edit profile</a></li>
   </ul>
 
@@ -28,7 +28,7 @@
 
     <!-- Mes achats -->
     <div role="tabpanel" class="tab-pane" id="travelers">
-      <h2 class="dashboard-title"><%= @bookings.count %><%= @items.count %> <%= @items.count > 1 ? "Booking requests I have made" : "Booking request I have made" %></h2>
+      <h2 class="dashboard-title"><%= @items.count > 1 ? "Booking requests I have made" : "Booking request I have made" %></h2>
       <% @bookings.each do |booking| %>
         <%= render 'shared/card_dashboard', booking: booking %>
 
@@ -38,7 +38,7 @@
 
     <!-- Mes ventes -->
     <div role="tabpanel" class="tab-pane" id="bookings">
-      <h2 class="dashboard-title"><%= @item_bookings.count %><%= @items.count %> <%= @items.count > 1 ? "Booking requests I have received" : "Booking request I have received" %></h2>
+      <h2 class="dashboard-title"><%= @items.count > 1 ? "Booking requests I have received" : "Booking request I have received" %></h2>
       <% @sales.each do |sale| %>
         <%= render 'shared/card_dashboard', booking: sale %>
       <% end %>
